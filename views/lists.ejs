@@ -1,0 +1,51 @@
+<!-- // header including -->
+
+<%- include('header'); -%>
+
+<body>
+    
+   
+
+    <div class="box" id="heading">
+
+        <h1> <%= listTittle %> </h1>
+
+    </div>
+
+    <div class="box">
+        <% listNIt.forEach(function (data) {    %>
+
+          <!-- //for(var i = 0;i  listNIt.length; i++){%> -->
+
+            <form action="/delete" method="post">
+                
+                <div class="item">
+                    <input type="checkbox" name="checkbox" onchange="this.form.submit()" value="<%= data._id %>">
+
+                    <p> <%= data.name %> </p>
+                </div>
+
+                <input type="hidden" name="listName" value="<%= listTittle %>">
+
+            </form>
+           
+
+                <%}) %>   
+
+                <form action="/" class="item" method="post">
+
+                    <!-- <label for="ip1">Input 1 : </label> -->
+                    <input type="text" id="ip1" name="inp1" placeholder="Add New Item" autocomplete="off">
+        
+                    <button type="submit" name="list" value="<%= listTittle %>">+</button>
+                </form>
+
+               
+                
+    </div>
+        
+    </body> 
+</body>
+
+
+<%- include('footer'); -%>
